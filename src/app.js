@@ -1,9 +1,10 @@
-var React = require('react');
+import React from 'react'
+import styles from './styles/main.css'
 
-var Hello = React.createClass({
-  render: function() {
-    return <div>Hello, {this.props.name}</div>
+const Hello = React.createClass({
+  render () {
+    return <h1>Hello, {this.props.name} </h1>
   }
 })
 
-React.render(<Hello name="Airiel big D Salvatore" />, document.body)
+React.render(<Hello name="Cutie Cake" />, document.body)
