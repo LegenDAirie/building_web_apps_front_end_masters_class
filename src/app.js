@@ -1,6 +1,10 @@
-window.app = {
-  init () {
+import Router from './router'
+import styles from './styles/main.css'
 
+window.app = {
+  init() {
+    this.router = new Router()
+    this.router.history.start()
   }
 }
 
