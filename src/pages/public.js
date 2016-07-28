@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default React.createClass({
-  render() {
+  render () {
     return (
       <div className='container'>
         <header role='banner'>
@@ -10,10 +10,10 @@ export default React.createClass({
         <div>
           <p>We label stuff for you, because, we can&trade;</p>
           <a href='/login' className='button button-large'>
-            <span className='mega-octicon octicon-mark-github'></span> Login with Github
+            <span className='mega-octicon octicon-mark-github'></span> Login with GitHub
           </a>
         </div>
-      </div>
+      </div>      
     )
   }
 })
