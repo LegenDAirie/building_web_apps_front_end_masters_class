@@ -1,12 +1,32 @@
 import Router from 'ampersand-router'
 import React from 'react'
 import Layout from './layout'
+import NavigationHandler from './components/navigation_handler'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
 
 export default Router.extend({
 
-  renderPage (page, options = {layout: true}) {
+  renderPage (page) {
+    React.render(page, document.body)
+  },
+
+  routes: {
+    '': 'public',
+    'repos': 'repos'
+  },
+
+  addNavigationHandler (page) {
+    page = (
+      <NavigationHandler>
+        {page}
+      </NavigationHandler>
+    )
+
+    this.renderPage(page)
+  },
+
+  addLayout (page, options = {layout: true}) {
 
     if(options.layout) {
       page = (
@@ -16,19 +36,14 @@ export default Router.extend({
       )
     }
 
-    React.render(page, document.body)
-  },
-
-  routes: {
-    '': 'public',
-    'repos': 'repos'
+    this.addNavigationHandler(page)
   },
 
   public () {
-    this.renderPage(<PublicPage/>, {layout: false})
+    this.addLayout(<PublicPage/>, {layout: false})
   },
 
   repos () {
-    this.renderPage(<ReposPage/>)
+    this.addLayout(<ReposPage/>)
   }
 })
