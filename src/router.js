@@ -2,6 +2,7 @@ import Router from 'ampersand-router'
 import React from 'react'
 import Layout from './layout'
 import qs from 'qs'
+import xhr from 'xhr'
 import NavigationHandler from './components/navigation_handler'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
@@ -57,6 +58,12 @@ export default Router.extend({
 
   authCallback (query) {
     query = qs.parse(query)
-    console.log(query)
+
+    xhr({
+      url: 'http://labelr-dev.herokuapp.com/authenticate/' + query.code,
+      json: true
+    }, (err, req, body) => {
+      console.log(body)
+    })
   }
 })
