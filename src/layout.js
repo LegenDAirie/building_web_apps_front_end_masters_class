@@ -1,5 +1,4 @@
 import React from 'react'
-import app from 'ampersand-app'
 import ampersandMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
