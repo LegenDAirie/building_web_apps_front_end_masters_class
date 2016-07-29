@@ -1,8 +1,15 @@
 import React from 'react'
+import app from 'ampersand-app'
+import ampersandMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
 
+  mixins: [ampersandMixin],
+
   render () {
+
+    const {user} = this.props
+
     return (
       <div>
         <nav className='top-nav top-nav-light cf' role='navigation'>
@@ -11,7 +18,7 @@ export default React.createClass({
           <ul className='list-unstyled list-inline cf'>
             <li>Labelr</li>
             <li><a href='/repos'>Repos</a></li>
-            <li className='pull-right'><a href='/logout'>Logout</a></li>
+            <li className='pull-right'><a href='/logout'>Logout</a> {user.login}</li>
           </ul>
         </nav>
         <div className='container'>

@@ -28,7 +28,7 @@ export default Router.extend({
 
     if(options.layout) {
       page = (
-        <Layout>
+        <Layout user={app.user}>
           {page}
         </Layout>
       )
