@@ -1,3 +1,4 @@
+import app from 'ampersand-app'
 import Router from 'ampersand-router'
 import React from 'react'
 import Layout from './layout'
@@ -58,12 +59,14 @@ export default Router.extend({
 
   authCallback (query) {
     query = qs.parse(query)
+    console.log(query)
 
     xhr({
       url: 'http://labelr-dev.herokuapp.com/authenticate/' + query.code,
       json: true
     }, (err, req, body) => {
       console.log(body)
+      app.user.token = body.token
     })
   }
 })
