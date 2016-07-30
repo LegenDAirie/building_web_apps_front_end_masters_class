@@ -7,7 +7,7 @@ import User from './models/user'
 window.app = app
 
 app.extend({
-  init () {
+  init() {
     this.user = new User()
     this.user.fetchInitialData()
     this.router = new Router()
