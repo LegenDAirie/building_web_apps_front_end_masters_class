@@ -48,7 +48,7 @@ export default Router.extend({
   },
 
   repos () {
-    this.addLayout(<ReposPage/>)
+    this.addLayout(<ReposPage repos={app.user.repos}/>)
   },
 
   login () {
